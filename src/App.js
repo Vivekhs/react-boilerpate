@@ -1,25 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import { Component, lazy, Suspense } from 'react'
+import { Redirect, Route, Switch } from 'react-router-dom'
+import { connect } from 'react-redux'
+import './App.scss'
+import Login from './components/Login/Login'
+import PageLoader from './components/PageLoader/PageLoader'
+import SignUp from './components/SignUp/SignUp'
+const Home = lazy(() => import('./components/Home/Home'))
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const PrivateRoute = ({ component: Component, ...args }) => (
+  <Route
+    {...args} render={(props) => (
+      args.isLoggedIn
+        ? <Component {...props} />
+        : <Redirect to={{
+          pathname: '/',
+          state: { from: props.location.pathname }
+        }}
+          />
+    )}
+  />
+)
+
+class App extends Component {
+  render () {
+    const { isLoggedIn } = this.props
+    return (
+      <Suspense fallback={<PageLoader />}>
+        <Switch>
+          <Route path='/' component={Login} exact />
+          <Route path='/login' component={Login} />
+          <Route path='/sign_up' component={SignUp} />
+          <PrivateRoute path='/home' isLoggedIn={isLoggedIn} component={Home} />
+          <PrivateRoute path='/home2' isLoggedIn={isLoggedIn} component={Home} />
+          <Route>
+      <Redirect to="/" />
+    </Route>
+        </Switch>
+      </Suspense>
+
+    )
+  }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    isLoggedIn: state.auth.isLoggedIn
+  }
+}
+export default connect(mapStateToProps)(App)

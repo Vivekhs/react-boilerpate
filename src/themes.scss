@@ -1,0 +1,35 @@
+$feature-flags: (
+  enable-css-custom-properties: true,
+  grid-columns-16: true
+);
+
+@import '~carbon-components/scss/globals/scss/styles';
+@import '~@carbon/themes/scss/themes';
+
+:root {
+  @include carbon--theme(
+    $theme: $carbon--theme--white,
+    $emit-custom-properties: true
+  );
+}
+
+:root[carbon-theme='g10'] {
+  @include carbon--theme(
+    $theme: $carbon--theme--g10,
+    $emit-custom-properties: true
+  );
+}
+
+:root[carbon-theme='g90'] {
+  @include carbon--theme(
+    $theme: $carbon--theme--g90,
+    $emit-custom-properties: true
+  );
+}
+
+:root[carbon-theme='g100'] {
+  @include carbon--theme(
+    $theme: $carbon--theme--g100,
+    $emit-custom-properties: true
+  );
+}

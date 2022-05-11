@@ -1,0 +1,16 @@
+@import '~@carbon/themes/scss/themes';
+
+.login_form {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+
+  .bx--tab-content {
+    padding: 0;
+  }
+      
+}
+
+.login_form__field--spacing {
+  margin-top: $spacing-03;
+}

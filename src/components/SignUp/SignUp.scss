@@ -1,0 +1,22 @@
+@import '~@carbon/themes/scss/themes';
+
+.sign_up_form {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+
+  .bx--tab-content {
+    padding: 0;
+  }
+      
+}
+
+.sign_up_form__field--spacing {
+  margin-top: $spacing-03;
+}
+
+.sign_up_form__notification--success {
+  .bx--inline-notification__close-button {
+    display: none;
+  }
+}
