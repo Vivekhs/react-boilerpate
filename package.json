@@ -166,7 +166,7 @@
     "moduleNameMapper": {
       "^react-native$": "react-native-web",
       "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
-      "node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/interopRequireDefault":"node_modules/@babel/runtime/helpers/interopRequireDefault.js"
+      "node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/interopRequireDefault": "node_modules/@babel/runtime/helpers/interopRequireDefault.js"
     },
     "moduleFileExtensions": [
       "web.js",
