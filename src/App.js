@@ -33,8 +33,8 @@ class App extends Component {
           <PrivateRoute path='/home' isLoggedIn={isLoggedIn} component={Home} />
           <PrivateRoute path='/home2' isLoggedIn={isLoggedIn} component={Home} />
           <Route>
-      <Redirect to="/" />
-    </Route>
+            <Redirect to='/' />
+          </Route>
         </Switch>
       </Suspense>
 

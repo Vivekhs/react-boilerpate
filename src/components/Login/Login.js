@@ -50,7 +50,7 @@ class Login extends Component {
     if (isLoggedIn) {
       resetError()
 
-      return <Redirect to={(location && location.state  && location.state.from) || '/home'} />
+      return <Redirect to={(location && location.state && location.state.from) || '/home'} />
     }
     return (
       <div className='bx--grid'>
@@ -90,7 +90,7 @@ class Login extends Component {
                   </div>
                 </div>
                 <div className='bx--offset-md-4 bx--offset-sm-2 bx--offset-lg-9 bx--col'>
-                  <Button type="submit" id='formSubmitBtn' className='login_form__field--spacing bx--col-md-8 bx--col-sm-4'>
+                  <Button type='submit' id='formSubmitBtn' className='login_form__field--spacing bx--col-md-8 bx--col-sm-4'>
                     <span>Log in</span>
                   </Button>
                 </div>
